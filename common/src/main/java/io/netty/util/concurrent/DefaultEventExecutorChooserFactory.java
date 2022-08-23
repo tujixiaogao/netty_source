@@ -32,9 +32,12 @@ public final class DefaultEventExecutorChooserFactory implements EventExecutorCh
 
     @Override
     public EventExecutorChooser newChooser(EventExecutor[] executors) {
+        //判断执行组长度是否符合二次幂
         if (isPowerOfTwo(executors.length)) {
+            //执行二次幂的算法，效率会高一点
             return new PowerOfTwoEventExecutorChooser(executors);
         } else {
+            //执行普通的算法
             return new GenericEventExecutorChooser(executors);
         }
     }
@@ -53,6 +56,7 @@ public final class DefaultEventExecutorChooserFactory implements EventExecutorCh
 
         @Override
         public EventExecutor next() {
+            //二次幂选择器算法
             return executors[idx.getAndIncrement() & executors.length - 1];
         }
     }
@@ -70,6 +74,7 @@ public final class DefaultEventExecutorChooserFactory implements EventExecutorCh
 
         @Override
         public EventExecutor next() {
+            //采用普通的算法
             return executors[(int) Math.abs(idx.getAndIncrement() % executors.length)];
         }
     }

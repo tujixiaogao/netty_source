@@ -50,6 +50,7 @@ public final class EchoServer {
 
         // Configure the server.
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
+        //为了方便设置为1，默认为机器核心数*2 (8*2=16)
         EventLoopGroup workerGroup = new NioEventLoopGroup(1);
         final EchoServerHandler serverHandler = new EchoServerHandler();
         try {
