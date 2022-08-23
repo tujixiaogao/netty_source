@@ -1,0 +1,58 @@
+
+20220823 搭建netty源代码环境
+
+前提：
+Jdk 版本1.8
+
+1、访问源码下载地址： https://github.com/netty/netty
+2、fork 地址到自己的github目录，方便后期自己做笔记维护
+3、配置好本地的maven 环境，setting文件采用阿里云的公共仓库：
+    <mirror>
+    		<id>alimaven</id>
+    		<mirrorOf>central</mirrorOf>
+    		<name>aliyun maven</name>
+    		<url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
+    </mirror>
+
+    <mirror>
+    		<id>aliyunmaven</id>
+    		<mirrorOf>*</mirrorOf>
+    		<name>阿里云公共仓库</name>
+    		<url>https://maven.aliyun.com/repository/public</url>
+    </mirror>
+
+    <mirror>
+    		<id>repo1</id>
+    		<mirrorOf>central</mirrorOf>
+    		<name>Human Readable Name for this Mirror.</name>
+    		<url>http://repo1.maven.org/maven2/</url>
+    </mirror>
+
+4、打开idea 根据git创建新的项目
+    注意：出现的问题：克隆不下来，原因是自己的电脑没有配置git ssh的公共密钥
+参考博文：
+
+5、编译过程中会出现报错信息：io.netty.util.collection缺失
+参考解决博文1：
+https://zhouyx.blog.csdn.net/article/details/112304711?spm=1001.2014.3001.5506
+参考解决博文2：
+https://blog.csdn.net/chuxin_mm/article/details/122256138?spm=1001.2014.3001.5506
+
+6、编译好common包即可
+7、运行例子 EchoServer.java 没问题即可成功
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
